@@ -1,0 +1,456 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  background: #0b0714;
+  color: #f4f1fb;
+}
+
+/* =========================================
+   PAGES
+========================================= */
+
+.page {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.05);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  padding: 25px;
+  overflow-y: auto;
+}
+
+.page.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.main-button,
+.birthday-button {
+  border: none;
+  background: linear-gradient(135deg, #ff2d95, #00e5ff);
+  color: #0b0714;
+  padding: 16px 30px;
+  border-radius: 40px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(255, 45, 149, 0.45), 0 0 25px rgba(0, 229, 255, 0.25);
+  transition: 0.3s ease;
+}
+
+.main-button:hover,
+.birthday-button:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 0 35px rgba(255, 45, 149, 0.6), 0 0 35px rgba(0, 229, 255, 0.4);
+}
+
+.main-button:active,
+.birthday-button:active {
+  transform: scale(0.95);
+}
+
+/* =========================================
+   1. WELCOME
+========================================= */
+
+.welcome {
+  background:
+    radial-gradient(circle at top right, #2a0f3d, transparent 40%),
+    radial-gradient(circle at bottom left, #0f1f3d, transparent 40%),
+    #0b0714;
+}
+
+.welcome-content {
+  max-width: 600px;
+}
+
+.clapper {
+  font-size: 100px;
+  animation: clapperSpin 2.5s infinite ease-in-out, floating 3s infinite ease-in-out;
+}
+
+@keyframes clapperSpin {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(6deg); }
+}
+
+@keyframes floating {
+  0%, 100% { margin-top: 0; }
+  50% { margin-top: -15px; }
+}
+
+.small-text {
+  font-size: 18px;
+  color: #00e5ff;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.welcome h1 {
+  font-family: "Bungee", cursive;
+  font-size: clamp(32px, 7vw, 58px);
+  line-height: 1.2;
+}
+
+.welcome h1 span {
+  color: #ff2d95;
+  text-shadow: 0 0 20px rgba(255, 45, 149, 0.6);
+}
+
+.instruction {
+  margin: 30px 0;
+  line-height: 1.7;
+  font-size: 16px;
+  color: #cfc8e0;
+}
+
+/* =========================================
+   2. BIRTHDAY
+========================================= */
+
+.birthday {
+  background:
+    radial-gradient(circle at 20% 20%, #3d1030, transparent 35%),
+    radial-gradient(circle at 80% 70%, #102a3d, transparent 35%),
+    #0b0714;
+}
+
+.birthday-content {
+  max-width: 700px;
+}
+
+.star {
+  font-size: 60px;
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.tiny {
+  letter-spacing: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #00e5ff;
+  margin: 20px;
+}
+
+.birthday h1 {
+  font-family: "Bungee", cursive;
+  font-size: clamp(42px, 10vw, 85px);
+  line-height: 1;
+  color: #f4f1fb;
+  text-shadow: 0 0 25px rgba(0, 229, 255, 0.35);
+}
+
+.birthday h2 {
+  font-family: "Bungee", cursive;
+  font-size: clamp(50px, 11vw, 100px);
+  color: #ff2d95;
+  margin: 10px 0;
+  text-shadow: 0 0 30px rgba(255, 45, 149, 0.5);
+}
+
+.birthday p {
+  font-size: 17px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  color: #cfc8e0;
+}
+
+/* =========================================
+   3. THE THREE LOVES
+========================================= */
+
+.loves-page {
+  background:
+    radial-gradient(circle at 10% 10%, #1a2d3d, transparent 30%),
+    radial-gradient(circle at 90% 90%, #3d1a2d, transparent 30%),
+    #0b0714;
+}
+
+.loves-content {
+  width: min(850px, 95vw);
+}
+
+.loves-content h1 {
+  font-family: "Bungee", cursive;
+  font-size: clamp(28px, 6vw, 50px);
+  margin: 10px 0;
+  background: linear-gradient(90deg, #ff2d95, #00e5ff, #ffd700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.loves-sub {
+  color: #cfc8e0;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.loves-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.love-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 25px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s ease;
+}
+
+.love-card:hover {
+  transform: translateY(-8px);
+  border-color: #ff2d95;
+  box-shadow: 0 10px 30px rgba(255, 45, 149, 0.25);
+}
+
+.love-emoji {
+  font-size: 42px;
+}
+
+.love-card strong {
+  font-size: 16px;
+  color: #ffd700;
+}
+
+.love-card p {
+  font-size: 13px;
+  color: #cfc8e0;
+  line-height: 1.5;
+}
+
+/* =========================================
+   4. WISHES
+========================================= */
+
+.wishes-page {
+  background: #0b0714;
+}
+
+.wishes-content {
+  width: min(800px, 95vw);
+}
+
+.gift {
+  font-size: 55px;
+}
+
+.wishes-content h1 {
+  font-family: "Bungee", cursive;
+  font-size: clamp(28px, 6vw, 48px);
+  margin: 10px;
+  color: #ff2d95;
+}
+
+.wishes-content > p {
+  margin-bottom: 25px;
+  color: #cfc8e0;
+}
+
+.wish-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.wish {
+  min-height: 120px;
+  border-radius: 20px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  color: #f4f1fb;
+  transition: 0.3s;
+}
+
+.wish:hover {
+  transform: translateY(-7px) rotate(1deg);
+  border-color: #00e5ff;
+  box-shadow: 0 10px 25px rgba(0, 229, 255, 0.25);
+}
+
+.wish span {
+  font-size: 30px;
+}
+
+.wish strong {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.shine {
+  font-size: 18px;
+  margin: 25px;
+  color: #ffd700;
+  font-weight: 600;
+}
+
+/* =========================================
+   5. FINAL
+========================================= */
+
+.final-page {
+  background:
+    radial-gradient(circle at top, #3d1a2d, transparent 45%),
+    radial-gradient(circle at bottom, #102a3d, transparent 45%),
+    #0b0714;
+}
+
+.final-content {
+  max-width: 700px;
+}
+
+.big-emoji {
+  font-size: 70px;
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-12px); }
+}
+
+.final-content h1 {
+  font-family: "Bungee", cursive;
+  font-size: clamp(36px, 8vw, 65px);
+  line-height: 1.2;
+  margin: 20px 0;
+  color: #f4f1fb;
+}
+
+.final-sub {
+  color: #cfc8e0;
+  margin-bottom: 30px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.birthday-button {
+  background: linear-gradient(135deg, #ffd700, #ff2d95);
+  color: #0b0714;
+  font-size: 17px;
+}
+
+.signature {
+  margin-top: 25px;
+  color: #cfc8e0;
+  font-style: italic;
+}
+
+/* =========================================
+   CASH RAIN
+========================================= */
+
+#cash-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.cash {
+  position: absolute;
+  top: -40px;
+  animation: cashFall linear forwards;
+  font-size: 26px;
+}
+
+@keyframes cashFall {
+  from {
+    transform: translateY(-40px) rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(110vh) rotate(540deg);
+    opacity: 0.2;
+  }
+}
+
+/* =========================================
+   SPARKLES (anime effect)
+========================================= */
+
+#sparkle-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 90;
+}
+
+.sparkle {
+  position: absolute;
+  bottom: -20px;
+  animation: sparkleFloat linear forwards;
+  font-size: 16px;
+  color: #00e5ff;
+}
+
+@keyframes sparkleFloat {
+  0% { transform: translateY(0) scale(0.5); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .page {
+    padding: 18px;
+  }
+
+  .loves-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wish-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .wish {
+    min-height: 100px;
+    padding: 12px;
+  }
+}
